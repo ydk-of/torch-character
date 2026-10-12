@@ -70,16 +70,30 @@ details:nth-of-type(9) td:nth-child(2){color:#a8dbb6;font-weight:650}
 .state-mp::after{content:"";display:block;height:6px;border-radius:8px;background:linear-gradient(90deg,var(--mana) 83.16%,#2a303b 83.16%);margin-top:12px}
 .state-money{border-color:#66522d;background:linear-gradient(130deg,#302616,#171a21);color:var(--gold)}
 @media(max-width:640px){.state-row-secondary{grid-template-columns:repeat(3,minmax(0,1fr))}.state-layout .pill{padding:10px 8px;overflow-wrap:anywhere}}
+
+/* Состояние: показатели слева, схема экипировки справа. */
+.state-with-armor{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:14px;align-items:start}
+.state-stats{min-width:0}
+.armor-panel{min-width:0;border:1px solid #494b58;background:#12151b;border-radius:10px;padding:12px}
+.armor-panel h3{margin:0 0 8px;font-size:16px}
+.armor-illustration{display:flex;justify-content:center;align-items:center}
+.armor-illustration svg{width:100%;max-width:300px;height:auto}
+.armor-legend{display:grid;gap:7px;font-size:12px;line-height:1.4}
+.armor-legend>div{padding:7px 9px;background:#1b2029;border-radius:6px}
+.armor-legend b,.armor-legend span{display:block}
+.armor-legend span{color:#b9c1cd;margin-top:3px}
+.armor-legend .armor-missing{color:#ff9393}
+@media(max-width:780px){.state-with-armor{grid-template-columns:minmax(0,1fr)}.armor-panel{max-width:100%}.armor-illustration svg{max-width:270px}}
 </style></head>
 <body><main>
 <div class="hero"><h1>🔥 Торч</h1><div>Fulgor Lampas Obscuritas · Дженази огня · 27 лет · 180 см</div><div class="muted">Актуальный рабочий лист персонажа</div></div>
 <div class="toolbar"><button onclick="document.querySelectorAll('details').forEach(x=>x.open=true)">Развернуть все блоки</button><button onclick="document.querySelectorAll('details').forEach(x=>x.open=false)">Свернуть все блоки</button></div>
 
-<details open><summary>Состояние</summary><div class="body"><div class="state-layout">
+<details open><summary>Состояние</summary><div class="body"><div class="state-with-armor"><div class="state-stats"><div class="state-layout">
 <div class="state-row state-row-primary"><div class="pill state-hp"><b>HP</b><br>27 / 27</div><div class="pill state-mp"><b>MP</b><br>79 / 95</div></div>
 <div class="state-row state-row-secondary"><div class="pill"><b>Сопротивление огню</b><br>1d6 + Воля</div><div class="pill"><b>Пункты Сумерек</b><br>4</div><div class="pill"><b>Вера в теорию</b><br>100%</div></div>
 <div class="state-row state-row-currency"><div class="pill state-money"><b>Валюта</b><br>8 зол. · 3 сер. · 36 мед.</div></div>
-</div></div></details>
+</div></div><aside class="armor-panel"><h3>Схема брони</h3><div class="armor-illustration"><svg viewBox="0 0 290 330" role="img" aria-label="Схема брони: нет щита и шлема, надеты мантия мага, перчатки из шкуры василиска и плащ" xmlns="http://www.w3.org/2000/svg"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="4.5"><path d="M102 75 L76 94 37 202 52 214 93 141 82 260 119 279 143 184 167 279 206 260 195 141 237 214 253 202 212 94 184 75" fill="#43302e" stroke="#e46c62"/><path d="M112 85 Q145 107 177 85 L196 118 183 174 207 267 171 280 145 192 119 280 83 267 107 174 94 118Z" fill="#292d39" stroke="#ffae73"/><path d="M125 181 L107 295 125 310 142 310 145 201 149 310 170 310 184 295 165 181" fill="#242b35" stroke="#ffae73"/><path d="M93 118 L63 192 50 185 81 102Z M197 118 L228 192 241 185 209 102Z" fill="#292d39" stroke="#ffae73"/><path d="M46 180 L70 188 61 217 37 208Z M220 188 L244 180 253 208 229 217Z" fill="#41524c" stroke="#79cda7"/><circle cx="145" cy="47" r="29" fill="#1a1e27" stroke="#8a929e"/><path d="M122 24 L168 70 M168 24 L122 70" stroke="#ee666d" stroke-width="7"/><path d="M20 48 Q42 25 64 48 L64 86 Q48 107 42 112 Q20 96 20 79Z" fill="#20232b" stroke="#8a929e"/><path d="M26 50 L58 90 M58 50 L26 90" stroke="#ee666d" stroke-width="7"/></g><g fill="#f4d4b9" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle"><text x="42" y="129">Щит</text><text x="145" y="13">Шлем</text></g></svg></div><div class="armor-legend"><div class="armor-missing">✕ Щит — отсутствует</div><div class="armor-missing">✕ Шлем — отсутствует</div><div><b>Мантия мага</b><span>Руки, тело, ноги до сапог · броня +2 · 35/100</span></div><div><b>Перчатки из шкуры василиска</b><span>Кисти рук · броня +2 · магический эффект не исследован</span></div><div><b>Кожаный плащ с капюшоном и родовым гербом</b><span>Поверх мантии · броня +2 · износ 60/100</span></div></div></aside></div></div></details>
 
 <details open><summary>Характеристики</summary><div class="body"><table><tr><th>Характеристика</th><th>Значение</th><th>Модификатор</th></tr>
 <tr><td>Сила</td><td>9</td><td>-1</td></tr><tr><td>Ловкость</td><td>7</td><td>-2</td></tr><tr><td>Телосложение</td><td>15</td><td>+2</td></tr>
