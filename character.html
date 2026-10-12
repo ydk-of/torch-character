@@ -34,11 +34,6 @@ tbody tr:hover td,tr:hover td{background:#222834}
 td{overflow-wrap:anywhere}
 .pill{min-height:76px;position:relative;padding:12px 14px}
 .pill b{color:#c9d2df;font-size:13px}
-details:first-of-type .pill:nth-child(1){border-color:#73343c;background:linear-gradient(130deg,#2b171b,#171a21)}
-details:first-of-type .pill:nth-child(1)::after{content:"";display:block;height:6px;border-radius:8px;background:var(--health);margin-top:12px}
-details:first-of-type .pill:nth-child(2){border-color:#31587d;background:linear-gradient(130deg,#142336,#171a21)}
-details:first-of-type .pill:nth-child(2)::after{content:"";display:block;height:6px;border-radius:8px;background:linear-gradient(90deg,var(--mana) 83.16%,#2a303b 83.16%);margin-top:12px}
-details:first-of-type .pill:nth-child(7){border-color:#66522d;background:linear-gradient(130deg,#302616,#171a21);color:var(--gold)}
 .note{border-left-color:#ff9b54;background:#201c1c;border-radius:0 8px 8px 0;padding:12px 14px}
 .note b{color:#ffbf8f}
 h3{color:#ffc08c;border-bottom:1px solid #383641;padding-bottom:5px}
@@ -61,15 +56,30 @@ details:nth-of-type(9) td:nth-child(2){color:#a8dbb6;font-weight:650}
 .pdf-help{text-align:center;color:var(--muted);font-size:13px}
 .pdf-viewer.ios-pdf .pdf-native{display:none}
 .pdf-viewer.ios-pdf .pdf-mobile{display:block}
+
+/* Состояние: три фиксированных ряда с адаптивными колонками. */
+.state-layout{display:grid;gap:8px}
+.state-row{display:grid;gap:8px;min-width:0}
+.state-row-primary{grid-template-columns:repeat(2,minmax(0,1fr))}
+.state-row-secondary{grid-template-columns:repeat(3,minmax(0,1fr))}
+.state-row-currency{grid-template-columns:minmax(0,1fr)}
+.state-layout .pill{min-width:0}
+.state-hp{border-color:#73343c;background:linear-gradient(130deg,#2b171b,#171a21)}
+.state-hp::after{content:"";display:block;height:6px;border-radius:8px;background:var(--health);margin-top:12px}
+.state-mp{border-color:#31587d;background:linear-gradient(130deg,#142336,#171a21)}
+.state-mp::after{content:"";display:block;height:6px;border-radius:8px;background:linear-gradient(90deg,var(--mana) 83.16%,#2a303b 83.16%);margin-top:12px}
+.state-money{border-color:#66522d;background:linear-gradient(130deg,#302616,#171a21);color:var(--gold)}
+@media(max-width:640px){.state-row-secondary{grid-template-columns:repeat(3,minmax(0,1fr))}.state-layout .pill{padding:10px 8px;overflow-wrap:anywhere}}
 </style></head>
 <body><main>
 <div class="hero"><h1>🔥 Торч</h1><div>Fulgor Lampas Obscuritas · Дженази огня · 27 лет · 180 см</div><div class="muted">Актуальный рабочий лист персонажа</div></div>
 <div class="toolbar"><button onclick="document.querySelectorAll('details').forEach(x=>x.open=true)">Развернуть все блоки</button><button onclick="document.querySelectorAll('details').forEach(x=>x.open=false)">Свернуть все блоки</button></div>
 
-<details open><summary>Состояние</summary><div class="body"><div class="grid">
-<div class="pill"><b>HP</b><br>27 / 27</div><div class="pill"><b>MP</b><br>79 / 95</div><div class="pill"><b>Скорость</b><br>6</div>
-<div class="pill"><b>Сопротивление огню</b><br>1d6 + Воля</div><div class="pill"><b>Пункты Сумерек</b><br>4</div><div class="pill"><b>Вера в теорию</b><br>100%</div>
-<div class="pill"><b>Валюта</b><br>8 зол. · 3 сер. · 36 мед.</div></div></div></details>
+<details open><summary>Состояние</summary><div class="body"><div class="state-layout">
+<div class="state-row state-row-primary"><div class="pill state-hp"><b>HP</b><br>27 / 27</div><div class="pill state-mp"><b>MP</b><br>79 / 95</div></div>
+<div class="state-row state-row-secondary"><div class="pill"><b>Сопротивление огню</b><br>1d6 + Воля</div><div class="pill"><b>Пункты Сумерек</b><br>4</div><div class="pill"><b>Вера в теорию</b><br>100%</div></div>
+<div class="state-row state-row-currency"><div class="pill state-money"><b>Валюта</b><br>8 зол. · 3 сер. · 36 мед.</div></div>
+</div></div></details>
 
 <details open><summary>Характеристики</summary><div class="body"><table><tr><th>Характеристика</th><th>Значение</th><th>Модификатор</th></tr>
 <tr><td>Сила</td><td>9</td><td>-1</td></tr><tr><td>Ловкость</td><td>7</td><td>-2</td></tr><tr><td>Телосложение</td><td>15</td><td>+2</td></tr>
