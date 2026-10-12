@@ -58,7 +58,7 @@
       "notes": [],
       "paragraphs": [],
       "headings": [],
-      "html": "<div class=\"grid\">\n<div class=\"pill\"><b>HP</b><br>27 / 27</div><div class=\"pill\"><b>MP</b><br>79 / 95</div><div class=\"pill\"><b>Скорость</b><br>6</div>\n<div class=\"pill\"><b>Сопротивление огню</b><br>1d6 + Воля</div><div class=\"pill\"><b>Пункты Сумерек</b><br>4</div><div class=\"pill\"><b>Вера в теорию</b><br>100%</div>\n<div class=\"pill\"><b>Валюта</b><br>8 зол. · 3 сер. · 36 мед.</div></div>"
+      "html": "<div class=\"state-layout\">\n<div class=\"state-row state-row-primary\"><div class=\"pill state-hp\"><b>HP</b><br>27 / 27</div><div class=\"pill state-mp\"><b>MP</b><br>79 / 95</div></div>\n<div class=\"state-row state-row-secondary\"><div class=\"pill\"><b>Сопротивление огню</b><br>1d6 + Воля</div><div class=\"pill\"><b>Пункты Сумерек</b><br>4</div><div class=\"pill\"><b>Вера в теорию</b><br>100%</div></div>\n<div class=\"state-row state-row-currency\"><div class=\"pill state-money\"><b>Валюта</b><br>8 зол. · 3 сер. · 36 мед.</div></div>\n</div>"
     },
     {
       "id": "section_2",
