@@ -83,11 +83,12 @@
           "condition": "60/100"
         },
         "presentation": {
-          "default_diagram_width_px": 150,
+          "default_diagram_width_px": 130,
           "zoom_diagram_width_px": 300,
           "missing_items": "crosses_only",
           "legend": "equipment_names_only",
-          "armor_values_on_diagram": true
+          "armor_values_on_diagram": true,
+          "legend_spacing": "compact"
         }
       }
     },
