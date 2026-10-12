@@ -49,6 +49,18 @@ details:nth-of-type(9) td:nth-child(2){color:#a8dbb6;font-weight:650}
 
 
 .relationship-scale{margin-top:20px;padding:14px;border:1px solid #45404a;border-radius:10px;background:#151820}.relationship-scale h3{margin-top:0}.scale-group{margin:12px 0;padding:10px 14px;border-radius:8px;border-left:4px solid #d65b64;background:#241b21}.scale-group:nth-of-type(2){border-left-color:#e7bf72;background:#26231b}.scale-group:nth-of-type(3){border-left-color:#79cda7;background:#1b2826}.scale-group h4{margin:0 0 7px;color:#f5e5d6}.scale-group ol{margin:0;padding-left:25px}.scale-group li{margin:6px 0;padding-left:4px}
+
+/* PDF: Safari on iPad/iPhone uses PDF.js canvas instead of the native iframe. */
+.pdf-viewer{width:100%;max-width:100%;min-width:0}
+.pdf-native{display:block;width:100%;height:78vh;min-height:520px;border:1px solid #6c6575;border-radius:10px;background:white}
+.pdf-mobile{display:none}
+.pdf-controls{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0 14px}
+.pdf-counter{min-width:110px;text-align:center;font-weight:600}
+.pdf-canvas-wrap{width:100%;display:flex;justify-content:center;align-items:flex-start;overflow:hidden}
+.pdf-page{display:block;max-width:100%;height:auto;background:white;box-shadow:0 2px 12px #0007}
+.pdf-help{text-align:center;color:var(--muted);font-size:13px}
+.pdf-viewer.ios-pdf .pdf-native{display:none}
+.pdf-viewer.ios-pdf .pdf-mobile{display:block}
 </style></head>
 <body><main>
 <div class="hero"><h1>🔥 Торч</h1><div>Fulgor Lampas Obscuritas · Дженази огня · 27 лет · 180 см</div><div class="muted">Актуальный рабочий лист персонажа</div></div>
@@ -162,8 +174,63 @@ details:nth-of-type(9) td:nth-child(2){color:#a8dbb6;font-weight:650}
 
 <h3>Квента персонажа</h3>
 <p>Полный PDF-документ с возможностью прокрутки и листания страниц. Если встроенный просмотр недоступен в браузере, откройте файл отдельно.</p>
-<div class="pdf-viewer" style="margin:14px 0"><iframe src="%D0%9A%D0%B2%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6%D0%B0%20%D0%9C%D1%8D%D1%82%D0%B0-%D0%A5%D0%B0%D1%82%D0%BE%D0%BD.pdf#toolbar=1&navpanes=0&view=FitH" title="Квента персонажа Мэта-Хатон — просмотр PDF" loading="lazy" style="display:block;width:100%;height:78vh;min-height:520px;border:1px solid #6c6575;border-radius:10px;background:#fff"></iframe></div>
+<div class="pdf-viewer" data-pdf-url="%D0%9A%D0%B2%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6%D0%B0%20%D0%9C%D1%8D%D1%82%D0%B0-%D0%A5%D0%B0%D1%82%D0%BE%D0%BD.pdf" style="margin:14px 0">
+  <iframe class="pdf-native" src="%D0%9A%D0%B2%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6%D0%B0%20%D0%9C%D1%8D%D1%82%D0%B0-%D0%A5%D0%B0%D1%82%D0%BE%D0%BD.pdf#toolbar=1&navpanes=0&view=FitH" title="Квента персонажа Мэта-Хатон — просмотр PDF" loading="lazy"></iframe>
+  <div class="pdf-mobile" aria-label="Квента персонажа — постраничный просмотр">
+    <div class="pdf-controls"><button type="button" class="pdf-prev">← Назад</button><span class="pdf-counter" aria-live="polite">Загрузка PDF…</span><button type="button" class="pdf-next">Вперёд →</button></div>
+    <div class="pdf-canvas-wrap"><canvas class="pdf-page" aria-label="Страница квенты"></canvas></div>
+    <p class="pdf-help">На iPad страницы переключаются кнопками. Документ выровнен по центру и подстраивается под ширину экрана.</p>
+  </div>
+</div>
 <p><a href="%D0%9A%D0%B2%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6%D0%B0%20%D0%9C%D1%8D%D1%82%D0%B0-%D0%A5%D0%B0%D1%82%D0%BE%D0%BD.pdf" target="_blank" rel="noopener noreferrer">Открыть квенту в отдельной вкладке</a> · <a href="%D0%9A%D0%B2%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6%D0%B0%20%D0%9C%D1%8D%D1%82%D0%B0-%D0%A5%D0%B0%D1%82%D0%BE%D0%BD.pdf" download>Скачать PDF</a></p>
 </div></details>
 
-</main></body></html>
+</main>
+<script>
+(function(){
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(!isIOS)return;
+  var viewer=document.querySelector('.pdf-viewer[data-pdf-url]');
+  if(!viewer)return;
+  viewer.classList.add('ios-pdf');
+  var pageCanvas=viewer.querySelector('.pdf-page'),counter=viewer.querySelector('.pdf-counter');
+  var pdf=null,current=1,rendering=false,pending=null,loaded=false;
+  var prev=viewer.querySelector('.pdf-prev'),next=viewer.querySelector('.pdf-next');
+  function update(){counter.textContent=pdf?'Страница '+current+' из '+pdf.numPages:'Загрузка PDF…';prev.disabled=!pdf||current<=1;next.disabled=!pdf||current>=pdf.numPages;}
+  function render(n){
+    if(!pdf)return;
+    if(rendering){pending=n;return;}
+    rendering=true;
+    pdf.getPage(n).then(function(page){
+      var wrap=viewer.querySelector('.pdf-canvas-wrap');
+      var base=page.getViewport({scale:1});
+      var available=Math.max(200,Math.min(wrap.clientWidth-4,820));
+      var ratio=Math.min(window.devicePixelRatio||1,2);
+      var scale=available/base.width;
+      var viewport=page.getViewport({scale:scale*ratio});
+      pageCanvas.width=Math.ceil(viewport.width);pageCanvas.height=Math.ceil(viewport.height);
+      pageCanvas.style.width=Math.floor(viewport.width/ratio)+'px';pageCanvas.style.height=Math.floor(viewport.height/ratio)+'px';
+      return page.render({canvasContext:pageCanvas.getContext('2d'),viewport:viewport}).promise;
+    }).then(function(){rendering=false;update();if(pending!==null){var p=pending;pending=null;render(p);}}).catch(function(){rendering=false;counter.textContent='Не удалось отобразить страницу. Откройте PDF отдельно.';});
+  }
+  function go(n){if(!pdf||n<1||n>pdf.numPages)return;current=n;update();render(n);}
+  prev.addEventListener('click',function(){go(current-1);});
+  next.addEventListener('click',function(){go(current+1);});
+  function load(){
+    if(loaded)return;loaded=true;
+    var script=document.createElement('script');
+    script.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+    script.onload=function(){
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      window.pdfjsLib.getDocument(viewer.getAttribute('data-pdf-url')).promise.then(function(doc){pdf=doc;update();render(current);}).catch(function(){counter.textContent='Ошибка загрузки. Откройте PDF отдельно.';});
+    };
+    script.onerror=function(){counter.textContent='Просмотрщик недоступен. Откройте PDF отдельно.';};
+    document.head.appendChild(script);
+  }
+  var details=viewer.closest('details');
+  if(details.open)load();else details.addEventListener('toggle',function(){if(details.open)load();});
+  window.addEventListener('resize',function(){if(pdf&&details.open)render(current);});
+  update();
+})();
+</script>
+</body></html>
